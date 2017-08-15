@@ -17,6 +17,7 @@ import (
 )
 
 func main() {
+    // Start a process, without being subject to a context, and poll it every second for status
     info, _ := pswatch.StartProcess(context.Background(), "sleep", []string{"5"}, &os.ProcAttr{}, time.Second)
     <-info
     fmt.Println("Sleep process is over")
